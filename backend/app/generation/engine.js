@@ -10,6 +10,7 @@ class GenerationEngine {
   start() {
     this.buildNewGeneration();
   }
+
   stop() {
     clearTimeout(this.timer);
   }
@@ -20,6 +21,7 @@ class GenerationEngine {
     GenerationTable.storeGeneration(generation)
       .then(({ generationId }) => {
         this.generation = generation;
+
         this.generation.generationId = generationId;
 
         console.log("new generation", this.generation);
