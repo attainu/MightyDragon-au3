@@ -1,37 +1,31 @@
-import React, { Component } from "react";
-import { Button } from "react-bootstrap";
-import DragonAvatar from "../components/DragonAvatar";
-
-const DEFAULT_DRAGON = {
-  dragonId: "",
-  generationId: "",
-  nickname: "",
-  birthdate: "",
-  traits: []
-};
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap';
+import DragonAvatar from './DragonAvatar';
+import { fetchDragon } from '../actions/dragon';
+import fetchStates from '../reducers/fetchStates';
 
 class Dragon extends Component {
-  state = { dragon: DEFAULT_DRAGON };
+  get DragonView() {
+    const { dragon } = this.props;
 
-  componentDidMount() {
-    this.fetchDragon();
+    if (dragon.status === fetchStates.error) return <span>{dragon.message}</span>;
+
+    return <DragonAvatar dragon={dragon} />;
   }
-
-  fetchDragon = () => {
-    fetch("http://localhost:3000/dragon/new")
-      .then(response => response.json())
-      .then(json => this.setState({ dragon: json.dragon }))
-      .catch(error => console.error("error", error));
-  };
 
   render() {
     return (
       <div>
-        <Button onClick={this.fetchDragon}>New Dragon</Button>
-        <DragonAvatar dragon={this.state.dragon} />
+        <Button onClick={this.props.fetchDragon}>New Dragon</Button>
+        <br />
+        { this.DragonView }
       </div>
-    );
+    )
   }
 }
 
-export default Dragon;
+export default connect(
+  ({ dragon }) => ({ dragon }),
+  { fetchDragon }
+)(Dragon);

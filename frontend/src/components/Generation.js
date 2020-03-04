@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchGeneration } from '../actions/generation';
+import fetchStates from '../reducers/fetchStates';
 
-const DEFAULT_GENERATION = { generationId: "", expiration: "" };
 const MINIMUM_DELAY = 3000;
 
 class Generation extends Component {
-  state = { generation: DEFAULT_GENERATION };
   timer = null;
+
   componentDidMount() {
     this.fetchNextGeneration();
   }
@@ -14,39 +16,46 @@ class Generation extends Component {
     clearTimeout(this.timer);
   }
 
-  fetchGeneration = () => {
-    fetch("http://localhost:3000/generation")
-      .then(response => response.json())
-      .then(json => {
-        console.log("json", json);
-        this.setState({ generation: json.generation });
-      })
-      .catch(error => console.error("error", error));
-  };
-
   fetchNextGeneration = () => {
-    this.fetchGeneration();
+    this.props.fetchGeneration();
 
-    let delay =
-      new Date(this.state.generation.expiration).getTime() -
+    let delay = new Date(this.props.generation.expiration).getTime() -
       new Date().getTime();
 
     if (delay < MINIMUM_DELAY) {
       delay = MINIMUM_DELAY;
-    }
+    };
 
     this.timer = setTimeout(() => this.fetchNextGeneration(), delay);
-  };
+  }
 
   render() {
-    const { generation } = this.state;
+    console.log('this.props', this.props);
+
+    const { generation } = this.props;
+
+    if (generation.status === fetchStates.error) {
+      return <div>{generation.message}</div>;
+    }
+
     return (
       <div>
         <h3>Generation {generation.generationId}. Expires on:</h3>
         <h4>{new Date(generation.expiration).toString()}</h4>
       </div>
-    );
+    )
   }
 }
 
-export default Generation;
+const mapStateToProps = state => {
+  const generation = state.generation;
+
+  return { generation };
+};
+
+const componentConnector = connect(
+  mapStateToProps,
+  { fetchGeneration }
+);
+
+export default componentConnector(Generation);
