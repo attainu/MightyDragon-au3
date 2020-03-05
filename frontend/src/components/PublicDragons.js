@@ -13,7 +13,7 @@ class PublicDragons extends Component {
 
   render() {
     return (
-      <div>
+      <>
       <Header />
       <div>
         <h3>Public Dragons</h3>
@@ -28,7 +28,7 @@ class PublicDragons extends Component {
           })
         }
       </div>
-      </div>
+      </>
     )
   }
 }

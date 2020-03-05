@@ -11,10 +11,10 @@ class AccountDragons extends Component {
 
   render() {
     return (
-      <div>
+      <>
       <Header />
-      <div>
-        <h3>Account Dragons</h3>
+      <>
+        <h3>My Dragons</h3>
         {
           this.props.accountDragons.dragons.map(dragon => {
             return (
@@ -25,8 +25,8 @@ class AccountDragons extends Component {
             )
           })
         }
-      </div>
-      </div>
+      </>
+      </>
     );
   }
 }

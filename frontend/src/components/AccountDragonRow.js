@@ -64,7 +64,7 @@ class AccountDragonRow extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <input
           type='text'
           value={this.state.nickname}
@@ -107,7 +107,7 @@ class AccountDragonRow extends Component {
             this.state.edit ? this.SaveButton : this.EditButton
           }
         </div>
-      </div>
+      </>
     )
   }
 }

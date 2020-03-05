@@ -7,10 +7,11 @@ import AccountInfo from './AccountInfo';
 import { logout } from '../actions/account';
 import Header from '../components/header';
 
+
 class Home extends Component {
   render() {
     return (
-      <div>
+      <>
         < Header />
         <Button onClick={this.props.logout} className='logout-button'>
           Log Out
@@ -21,7 +22,7 @@ class Home extends Component {
         <hr />
         <AccountInfo />
         <hr />
-      </div>
+      </>
     );
   }
 }

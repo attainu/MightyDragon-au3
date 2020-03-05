@@ -16,11 +16,11 @@ class Dragon extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button onClick={this.props.fetchDragon}>New Dragon</Button>
         <br />
         { this.DragonView }
-      </div>
+      </>
     )
   }
 }

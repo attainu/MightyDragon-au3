@@ -10,6 +10,7 @@ import Root from './components/Root';
 import AccountDragons from './components/AccountDragons';
 import PublicDragons from './components/PublicDragons';
 import { fetchAuthenticated } from './actions/account';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 const store = createStore(
