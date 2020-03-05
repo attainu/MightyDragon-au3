@@ -35,6 +35,7 @@ class PublicDragonRow extends Component {
 
   render() {
     return (
+      
       <div>
         <div>{this.props.dragon.nickname}</div>
         <DragonAvatar dragon={this.props.dragon} />
@@ -52,6 +53,7 @@ class PublicDragonRow extends Component {
             <div></div>
         }
       </div>
+    
     )
   }
 }
