@@ -1,19 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
 
 function Header() {
   return (
-    <nav>
-      <NavLink exact activeClassName="active" to="/">
-        Home
-      </NavLink>
-      <NavLink activeClassName="active" to="/public-dragons">
-        Public Dragons
-      </NavLink>
-      <NavLink activeClassName="active" to="/account-dragons">
-        My Dragons
-      </NavLink>
-    </nav>
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand href="/">MightyDragon</Navbar.Brand>
+      <Nav className="mr-auto">
+        <Nav.Link href="/account-dragons">My Dragons</Nav.Link>
+        <Nav.Link href="/public-dragons">Public Dragons</Nav.Link>
+      </Nav>
+    </Navbar>
   );
 }
 

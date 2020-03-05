@@ -39,10 +39,10 @@ class Generation extends Component {
     }
 
     return (
-      <div>
+      <>
         <h3>Generation {generation.generationId}. Expires on:</h3>
         <h4>{new Date(generation.expiration).toString()}</h4>
-      </div>
+      </>
     )
   }
 }

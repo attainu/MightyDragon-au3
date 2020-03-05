@@ -42,8 +42,9 @@ class AuthForm extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Dragon Stack</h2>
+      <>
+        <h2>Mighty Dragon</h2>
+        <h3>Buy, Trade, Sire your dragons</h3>
         <FormGroup>
           <FormControl
             type='text'
@@ -67,7 +68,7 @@ class AuthForm extends Component {
         </div>
         <br />
         {this.Error}
-      </div>
+      </>
     );
   }
 }
