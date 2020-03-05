@@ -5,6 +5,7 @@ import { fetchAccountDragons } from '../actions/accountDragons';
 import PublicDragonRow from './PublicDragonRow';
 import Header from '../components/header';
 
+
 class PublicDragons extends Component {
   componentDidMount() {
     this.props.fetchPublicDragons();

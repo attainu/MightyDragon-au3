@@ -35,8 +35,7 @@ class PublicDragonRow extends Component {
 
   render() {
     return (
-      
-      <>
+      <div>
         <div>{this.props.dragon.nickname}</div>
         <DragonAvatar dragon={this.props.dragon} />
         <div>
@@ -52,8 +51,7 @@ class PublicDragonRow extends Component {
             <MatingOptions patronDragonId={this.props.dragon.dragonId} /> :
             <div></div>
         }
-      </>
-    
+      </div>
     )
   }
 }

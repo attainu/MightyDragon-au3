@@ -1,5 +1,7 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
+
+
 
 function Header() {
   return (
@@ -8,9 +10,10 @@ function Header() {
       <Nav className="mr-auto">
         <Nav.Link href="/account-dragons">My Dragons</Nav.Link>
         <Nav.Link href="/public-dragons">Public Dragons</Nav.Link>
+        
       </Nav>
     </Navbar>
   );
 }
 
-export default Header;
+export default (Header);

@@ -3,26 +3,25 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import Generation from './Generation';
 import Dragon from './Dragon';
+import Header from './header';
 import AccountInfo from './AccountInfo';
 import { logout } from '../actions/account';
-import Header from '../components/header';
-
 
 class Home extends Component {
   render() {
     return (
-      <>
-        < Header />
+      <div>
+      <Header />
         <Button onClick={this.props.logout} className='logout-button'>
           Log Out
         </Button>
-        <h2>Dragon Stack</h2>
+        <h2>Mighty Dragon</h2>
         <Generation />
         <Dragon />
         <hr />
         <AccountInfo />
         <hr />
-      </>
+      </div>
     );
   }
 }
