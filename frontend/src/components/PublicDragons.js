@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPublicDragons } from '../actions/publicDragons';
 import { fetchAccountDragons } from '../actions/accountDragons';
-import { Link } from 'react-router-dom';
 import PublicDragonRow from './PublicDragonRow';
+import Header from '../components/header';
 
 class PublicDragons extends Component {
   componentDidMount() {
@@ -13,6 +13,8 @@ class PublicDragons extends Component {
 
   render() {
     return (
+      <div>
+      <Header />
       <div>
         <h3>Public Dragons</h3>
         {
@@ -25,7 +27,7 @@ class PublicDragons extends Component {
             )
           })
         }
-        <Link to='/'>Home</Link>
+      </div>
       </div>
     )
   }
