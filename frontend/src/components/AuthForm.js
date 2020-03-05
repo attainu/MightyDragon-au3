@@ -30,7 +30,7 @@ class AuthForm extends Component {
 
     this.props.login({ username, password });
   }
-
+  // eslint-disable-next-line
   get Error() {
     if (
       this.state.buttonClicked &&
