@@ -36,6 +36,7 @@ class PublicDragonRow extends Component {
   render() {
     return (
       <div>
+        
         <div>{this.props.dragon.nickname}</div>
         <DragonAvatar dragon={this.props.dragon} />
         <div>

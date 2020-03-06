@@ -12,6 +12,9 @@ class Home extends Component {
     return (
       <div>
       <Header />
+      <div className="sidebar bar-block card">
+        <AccountInfo />
+        </div>
         <Button onClick={this.props.logout} className='logout-button'>
           Log Out
         </Button>
@@ -19,7 +22,7 @@ class Home extends Component {
         <Generation />
         <Dragon />
         <hr />
-        <AccountInfo />
+        
         <hr />
       </div>
     );

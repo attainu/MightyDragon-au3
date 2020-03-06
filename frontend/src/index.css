@@ -18,6 +18,12 @@ body {
 
 .dragon-avatar-image-pattern {
   position: absolute;
+  background-color: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100% )
+}
+.bar-block{
+  width:25%;
+  height: 100%;
+  right:0
 }
 
 .dragon-avatar-image-background {
@@ -26,4 +32,15 @@ body {
 
 .dragon-avatar-image {
   z-index: 0;
+}
+.text-line{
+  background-color: transparent;
+    
+    outline: none;
+    outline-style: none;
+    border-top: none;
+    border-left: 2rem;
+    border-right: none;
+   
+    padding: 3px 10px;
 }

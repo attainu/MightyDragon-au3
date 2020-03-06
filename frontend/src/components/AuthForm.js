@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, FormGroup, FormControl } from 'react-bootstrap';
 import { signup, login } from '../actions/account';
 import fetchStates from '../reducers/fetchStates';
+import "../styles/AuthForm.css"
 
 class AuthForm extends Component {
   state = { username: '', password: '', buttonClicked: false };
@@ -30,7 +30,7 @@ class AuthForm extends Component {
 
     this.props.login({ username, password });
   }
-  // eslint-disable-next-line
+ // eslint-disable-next-line
   get Error() {
     if (
       this.state.buttonClicked &&
@@ -42,33 +42,57 @@ class AuthForm extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Mighty Dragon</h2>
-        <FormGroup>
-          <FormControl
-            type='text'
-            value={this.state.username}
-            placeholder='username'
-            onChange={this.updateUsername}
-          />
-        </FormGroup>
-        <FormGroup>
-          <FormControl
-            type='password'
-            value={this.state.password}
-            placeholder='password'
-            onChange={this.updatePassword}
-          />
-        </FormGroup>
+      <div classNameName="container register">
+    <div className="container h-100">
+    
+   <div className="d-flex justify-content-center h-100">
+     <div className="user_card">
+     <h3> Mighty Dragon </h3>
+       <div className="d-flex justify-content-center">
+     
+       </div>
+       <div className="d-flex justify-content-center form_container">
+         <form>
+           <div className="input-group mb-3">
+             <div className="input-group-append">
+               <span className="input-group-text"><i className="fas fa-user"></i></span>
+             </div>
+             <input type="text" name="" className="form-control input_user" value={this.props.username} onChange={this.updateUsername} placeholder="username"/>
+           </div>
+           <div className="input-group mb-2">
+             <div className="input-group-append">
+               <span className="input-group-text"><i className="fas fa-key"></i></span>
+             </div>
+             <input type="password" name="" className="form-control input_pass" value={this.props.username} onChange={this.updateUsername} placeholder="password"/>
+           </div>
+           <div className="form-group">
+             <div className="custom-control custom-checkbox">
+               <input type="checkbox" className="custom-control-input" id="customControlInline"/>
+               <label className="custom-control-label" for="customControlInline">Remember me</label>
+             </div>
+           </div>
+             <div className="d-flex justify-content-center mt-3 login_container">
+          <button type="button" onClick={this.signup} name="button" className="btn login_btn">Signup</button>
+                  <span>or</span>
+                    <button type="button" onClick={this.login} name="button" className="btn login_btn">Login</button>
+
+          </div>
+         </form>
+       </div>
+   
+       
+     </div>
+   </div>
+ </div>
+
+       
         <div>
-          <Button onClick={this.login}>Log In</Button>
-          <span> or </span>
-          <Button onClick={this.signup}>Sign Up</Button>
-        </div>
+ </div>
         <br />
         {this.Error}
       </div>
-    );
+    )
+    
   }
 }
 

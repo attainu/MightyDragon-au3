@@ -65,7 +65,7 @@ class AccountDragonRow extends Component {
   render() {
     return (
       <div>
-        <input
+        <input className="text-line"
           type='text'
           value={this.state.nickname}
           onChange={this.updateNickname}
@@ -76,32 +76,32 @@ class AccountDragonRow extends Component {
         <div>
           <span>
             Sale Value:{' '}
-            <input
-              type='number'
+            <input className="text-line"
+              type='text'
               disabled={!this.state.edit}
               value={this.state.saleValue}
               onChange={this.updateSaleValue}
-              className='account-dragon-row-input'
+              
             />
           </span>{' '}
           <span>
             Sire Value:{' '}
-            <input
-              type='number'
+            <input className="text-line"
+              type='text'
               disabled={!this.state.edit}
               value={this.state.sireValue}
               onChange={this.updateSireValue}
-              className='account-dragon-row-input'
+              
             />
           </span>{' '}
           <span>
-            Public:{' '}
-            <input
+                        <input 
               type='checkbox'
               disabled={!this.state.edit}
               checked={this.state.isPublic}
               onChange={this.updateIsPublic}
-            />
+            />Public:{' '}
+
           </span>
           {
             this.state.edit ? this.SaveButton : this.EditButton
