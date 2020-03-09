@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run configure-dev\" \"npm run client\"",
+    "client": "npm start --prefix frontend",
+    "start": "node ./bin/server",
+    "server": "nodemon ./bin/server",
+    "configure-dev": "npm run configure && npm run server",
+    "configure": "sh ./bin/configure_db.sh",
+    "heroku-postbuild" : "--prefix frontend && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "pg": "^7.18.2",
+    "uuid": "^7.0.2",
+    "uuidv4": "^6.0.6"
+  }
+}
