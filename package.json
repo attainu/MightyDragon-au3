@@ -10,7 +10,7 @@
     "server": "nodemon ./bin/server",
     "configure-dev": "npm run configure && npm run server",
     "configure": "sh ./bin/configure_db.sh",
-    "heroku-postbuild": "--prefix frontend && npm install && npm run build"
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
