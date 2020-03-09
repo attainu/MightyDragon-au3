@@ -12,8 +12,8 @@ const engine = new GenerationEngine();
 
 app.locals.engine = engine;
 
-
-const port =  process.env.PORT || 3001;
+const ENV = process.env.NODE_ENV;
+const port = process.env.PORT || 3001;
 
 app.use(cors({ origin: port, credentials: true }));
 app.use(bodyParser.json());
@@ -23,7 +23,12 @@ app.use("/account", accountRouter);
 app.use("/dragon", dragonRouter);
 app.use("/generation", generationRouter);
 
-
+if (ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+  });
+}
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
