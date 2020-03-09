@@ -4,4 +4,4 @@ CREATE TABLE dragonTrait(
     FOREIGN KEY ("traitId") REFERENCES trait(id),
     FOREIGN KEY ("dragonId") REFERENCES dragon(id)
 
-)
+);
